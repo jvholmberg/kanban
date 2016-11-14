@@ -26,6 +26,7 @@ export default class Profile extends React.Component {
     return (
       <div>
         <h1>{ this.props.user.user.username }</h1>
+        <h1>{ this.props.user.user.token }</h1>
       </div>
     );
   }

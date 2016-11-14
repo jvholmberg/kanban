@@ -18,6 +18,6 @@ router.get('/profile', (req, res, next) => {
 });
 
 router.get('/dashboard', (req, res, next) => {
-  if (!req.user) return res.redirect('/');
+  //if (!req.user) return res.redirect('/');
   res.render('application');
 });

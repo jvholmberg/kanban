@@ -36,11 +36,13 @@ router.post('/create', (req, res) => {
 
         // Create user
         User.create({
-          token: req.body.username
-          , username: req.body.username
-          , password: hash
-          , memberOf: []
-          , pendingInvites: []
+          token: req.body.username,
+          username: req.body.username,
+          password: hash,
+          displayName: req.body.displayName,
+          email: req.body.email,
+          memberOf: [],
+          pendingInvites: []
         }, (err) => {
           console.log(err);
           res.redirect('/');
@@ -69,7 +71,23 @@ router.post('/login',
 * @desc: Logout user and redirect to index-page
 *
 */
-router.post('/logout', function(req, res){
+router.post('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
+});
+
+/*
+* Get My User
+* @type: GET
+* @desc:
+*
+*/
+router.get('/me', (req, res) => {
+  if (!req.user) return res.redirect('/');
+  res.json({
+    token: req.user.token,
+    username: req.user.username,
+    pendingInvites: req.user.pendingInvites,
+    memberOf: req.user.memberOf
+  });
 });

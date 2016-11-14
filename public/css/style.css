@@ -1,6 +1,202 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
 
-a {
-  color: #00B7FF; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, p:before, p:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  font-family: 'Roboto', sans-serif; }
+
+main {
+  margin-top: 5rem; }
+
+html {
+  font-size: 10px; }
+
+body {
+  font-size: 1.4rem; }
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 3.4rem;
+  box-sizing: border-box;
+  padding: 1rem 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 200;
+  line-height: 1.4rem;
+  white-space: nowrap;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: .1rem solid #ccc;
+  border-radius: .3rem;
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
+
+.btn {
+  display: inline-block;
+  padding: 1rem 4rem;
+  margin: 0;
+  height: 3.4rem;
+  font-size: 1.4rem;
+  font-weight: 200;
+  line-height: 1.4rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border-radius: .3rem;
+  outline: 0;
+  border: none;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-sizing: border-box; }
+  .btn.primary {
+    background: #3BAFDA; }
+    .btn.primary:hover {
+      background-color: #4FC1E9; }
+  .btn.success {
+    background: #8CC152; }
+    .btn.success:hover {
+      background-color: #A0D468; }
+  .btn.warning {
+    background: #F6BB42; }
+    .btn.warning:hover {
+      background-color: #FFCE54; }
+  .btn.danger {
+    background: #DA4453; }
+    .btn.danger:hover {
+      background-color: #ED5565; }
+  .btn.info {
+    background: #37BC9B; }
+    .btn.info:hover {
+      background-color: #48CFAD; }
+  .btn.normal {
+    background: #AAB2BD; }
+    .btn.normal:hover {
+      background-color: #CCD1D9; }
+  .btn.default {
+    color: #000000;
+    background: #FFFFFF; }
+    .btn.default:hover {
+      background-color: #CCD1D9; }
+
+.alert {
+  display: block;
+  padding: 1.5rem;
+  width: 100%; }
+  .alert.primary {
+    background-color: #3BAFDA;
+    color: #FFFFFF; }
+  .alert.success {
+    background-color: #8CC152;
+    color: #FFFFFF; }
+  .alert.warning {
+    background-color: #F6BB42;
+    color: #FFFFFF; }
+  .alert.danger {
+    background-color: #DA4453;
+    color: #FFFFFF; }
+  .alert.info {
+    background-color: #37BC9B;
+    color: #FFFFFF; }
+  .alert.normal {
+    background-color: #AAB2BD;
+    color: #000000; }
+  .alert.default {
+    background-color: #FFFFFF;
+    color: #000000; }
+
+.span1 {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 8.33%; }
+
+.span2 {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 16.66%; }
+
+.span3 {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 25%; }
+
+.span4 {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 33.33%; }
+
+.span6 {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 50%; }
+
+.span8 {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 66.66%; }
+
+.span9 {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 75%; }
+
+.span10 {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 83.33%; }
+
+.span12 {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%; }

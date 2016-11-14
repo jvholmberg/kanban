@@ -5,7 +5,7 @@ export default function reducer(state = {
     fetched: false,
     error: null,
     user: {
-      apiToken: null,
+      token: null,
       username: null,
       password: null,
       memberOf: [],
