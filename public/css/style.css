@@ -29,9 +29,6 @@ table {
 html {
   font-family: 'Roboto', sans-serif; }
 
-main {
-  margin-top: 5rem; }
-
 html {
   font-size: 10px; }
 
@@ -144,6 +141,27 @@ body {
   .alert.default {
     background-color: #FFFFFF;
     color: #000000; }
+
+.icon {
+  display: inline-block;
+  margin: 0;
+  padding: 0; }
+  .icon.icon-s {
+    width: 2rem;
+    height: 2rem;
+    background-size: 2rem 2rem; }
+  .icon.icon-m {
+    width: 3rem;
+    height: 3rem;
+    background-size: 3rem 3rem; }
+  .icon.icon-l {
+    width: 5rem;
+    height: 5rem;
+    background-size: 5rem 5rem; }
+  .icon.heart-border {
+    background-image: url(./icons/heart-border.svg); }
+  .icon.heart-filled {
+    background: url(icons/heart-filled.svg); }
 
 .col {
   display: block;

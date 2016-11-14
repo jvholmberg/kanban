@@ -39020,7 +39020,8 @@
 	            null,
 	            'Pending invites'
 	          )
-	        )
+	        ),
+	        _react2.default.createElement('span', { className: 'icon icon-s heart-border' })
 	      );
 	    }
 	  }]);

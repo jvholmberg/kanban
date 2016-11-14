@@ -35,6 +35,7 @@ export default class MyUser extends React.Component {
         <div>
           <p>Pending invites</p>
         </div>
+        <span class='icon icon-s heart-border'></span>
       </div>
     );
   }
