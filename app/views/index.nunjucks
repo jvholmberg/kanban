@@ -1,0 +1,38 @@
+{% extends 'layout.nunjucks' %}
+
+{% block content %}
+  <div>
+    <h1>Login</h1>
+    <form action="/user/login" method="post">
+      <label>
+        Username
+        <input type='text' name='username' />
+      </label>
+      <label>
+        Password
+        <input type='password' name='password' />
+      </label>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <div>
+    <h1>Register</h1>
+    <form action="/user/create" method="post">
+      <label>
+        Username
+        <input type='text' name='username' />
+      </label>
+      <label>
+        Password
+        <input type='password' name='password' />
+      </label>
+      <label className={s.label}>
+        Confirm Password
+        <input type='password' name='password2' />
+      </label>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+{% endblock %}
