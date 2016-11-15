@@ -37204,6 +37204,10 @@
 
 	var user = _interopRequireWildcard(_user);
 
+	var _myUser = __webpack_require__(351);
+
+	var _myUser2 = _interopRequireDefault(_myUser);
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -37231,7 +37235,6 @@
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
 	      this.props.dispatch(user.fetch());
-	      console.log(this.props);
 	    }
 	  }, {
 	    key: 'render',
@@ -37239,16 +37242,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          this.props.user.user.username
-	        ),
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          this.props.user.user.token
-	        )
+	        _react2.default.createElement(_myUser2.default, { user: this.props.user.user })
 	      );
 	    }
 	  }]);
@@ -38799,10 +38793,6 @@
 
 	var _createStoryForm2 = _interopRequireDefault(_createStoryForm);
 
-	var _myUser = __webpack_require__(351);
-
-	var _myUser2 = _interopRequireDefault(_myUser);
-
 	var _story = __webpack_require__(352);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -38828,8 +38818,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Dashboard',
-	        _react2.default.createElement(_myUser2.default, null)
+	        'Dashboard'
 	      );
 	    }
 	  }]);
@@ -38948,6 +38937,8 @@
 
 	var s = {
 	  root: 'my_user_root',
+	  header: 'my_user_header',
+	  section: 'my_user_section',
 	  title: 'my_user_title',
 	  text: 'my_user_text'
 	};
@@ -38964,49 +38955,46 @@
 	  _createClass(MyUser, [{
 	    key: 'render',
 	    value: function render() {
+
+	      var user = this.props.user;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: s.root },
 	        _react2.default.createElement(
 	          'div',
-	          null,
-	          _react2.default.createElement('span', { className: 'icon icon-m favorite-filled' }),
+	          { className: s.header },
+	          _react2.default.createElement('span', { className: 'icon icon-l user' }),
 	          _react2.default.createElement(
-	            'h2',
+	            'span',
 	            null,
 	            'My profile'
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: s.section },
+	          _react2.default.createElement('span', { className: 'icon icon-s description' }),
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            'Admin'
+	            user.username
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: s.section },
+	          _react2.default.createElement('span', { className: 'icon icon-s description' }),
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            'Johan Holmberg'
+	            user.email
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'johan.holmberg@hotmail.com'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
+	          { className: s.section },
+	          _react2.default.createElement('span', { className: 'icon icon-s description' }),
 	          _react2.default.createElement(
 	            'p',
 	            null,
@@ -39015,7 +39003,8 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: s.section },
+	          _react2.default.createElement('span', { className: 'icon icon-s description' }),
 	          _react2.default.createElement(
 	            'p',
 	            null,

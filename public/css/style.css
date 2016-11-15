@@ -194,6 +194,20 @@ body {
     background-image: url(icons/insert-photo.svg); }
   .icon.refresh {
     background-image: url(./icons/refresh.svg); }
+  .icon.description {
+    background-image: url(./icons/description.svg); }
+  .icon.bookmark {
+    background-image: url(./icons/bookmark.svg); }
+  .icon.bug {
+    background-image: url(./icons/bug.svg); }
+  .icon.assignment {
+    background-image: url(./icons/assignment.svg); }
+  .icon.assignment-done {
+    background-image: url(./icons/assignment-done.svg); }
+  .icon.assignment-late {
+    background-image: url(./icons/assignment-late.svg); }
+  .icon.pencil {
+    background-image: url(./icons/pencil.svg); }
 
 .col {
   display: block;
