@@ -158,10 +158,42 @@ body {
     width: 5rem;
     height: 5rem;
     background-size: 5rem 5rem; }
-  .icon.heart-border {
-    background-image: url(./icons/heart-border.svg); }
-  .icon.heart-filled {
-    background: url(icons/heart-filled.svg); }
+  .icon.favorite-outline {
+    background-image: url(./icons/favorite-outline.svg); }
+  .icon.favorite-filled {
+    background-image: url(icons/favorite-filled.svg); }
+  .icon.user {
+    background-image: url(./icons/user.svg); }
+  .icon.user-box {
+    background-image: url(icons/user-box.svg); }
+  .icon.add {
+    background-image: url(icons/add.svg); }
+  .icon.add-box {
+    background-image: url(./icons/add-box.svg); }
+  .icon.announcement {
+    background-image: url(icons/announcement.svg); }
+  .icon.attach-file {
+    background-image: url(icons/attach-file.svg); }
+  .icon.attachment {
+    background-image: url(./icons/attachment.svg); }
+  .icon.cog {
+    background-image: url(icons/cog.svg); }
+  .icon.delete {
+    background-image: url(icons/delete.svg); }
+  .icon.done-all {
+    background-image: url(./icons/done-all.svg); }
+  .icon.done {
+    background-image: url(icons/done.svg); }
+  .icon.extension {
+    background-image: url(./icons/extension.svg); }
+  .icon.help-outline {
+    background-image: url(icons/help-outline.svg); }
+  .icon.help {
+    background-image: url(./icons/help.svg); }
+  .icon.insert-photo {
+    background-image: url(icons/insert-photo.svg); }
+  .icon.refresh {
+    background-image: url(./icons/refresh.svg); }
 
 .col {
   display: block;

@@ -38970,6 +38970,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
+	          _react2.default.createElement('span', { className: 'icon icon-m favorite-filled' }),
 	          _react2.default.createElement(
 	            'h2',
 	            null,
@@ -39020,8 +39021,7 @@
 	            null,
 	            'Pending invites'
 	          )
-	        ),
-	        _react2.default.createElement('span', { className: 'icon icon-s heart-border' })
+	        )
 	      );
 	    }
 	  }]);

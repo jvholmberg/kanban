@@ -17,7 +17,7 @@ export default class MyUser extends React.Component {
     return (
       <div className={s.root}>
         <div>
-
+          <span class='icon icon-m favorite-filled'></span>
           <h2>My profile</h2>
         </div>
         <div>
@@ -35,7 +35,7 @@ export default class MyUser extends React.Component {
         <div>
           <p>Pending invites</p>
         </div>
-        <span class='icon icon-s heart-border'></span>
+
       </div>
     );
   }
