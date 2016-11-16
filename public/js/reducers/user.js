@@ -7,7 +7,10 @@ export default function reducer(state = {
     user: {
       token: null,
       username: null,
-      password: null,
+      displayName: null,
+      email: null,
+      conversations: [],
+      notifications: [],
       memberOf: [],
       pendingInvites: []
     }

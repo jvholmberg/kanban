@@ -7,6 +7,19 @@ var UserSchema = new Schema({
   password: String,
   displayName: String,
   email: String,
+  conversations: [{
+    recipient: String,
+    messages: [{
+      from: String,
+      text: String,
+      timestamp: { type: Date, default: Date.now }
+    }]
+  }],
+  notifications: [{
+    type: String,
+    text: String,
+    timestamp: { type: Date, default: Date.now }
+  }],
   memberOf: [Schema.Types.ObjectId],
   pendingInvites: [Schema.Types.ObjectId]
 });

@@ -3,25 +3,24 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
 
-let s = {
-  root: 'navbar_root',
-  list: 'navbar_list',
-  item: 'navbar_item',
-  link: 'navbar_link',
-  activeLink: 'navbar_link_active'
-};
+import MyIcon from './myIcon';
 
 export default class Navbar extends React.Component {
   constructor() {
     super();
   }
   render() {
+
+    const { user } = this.props;
+
     return (
-      <nav className={s.root}>
-        <ul className={s.list}>
-          <li className={s.item}><IndexLink to='profile' className={s.link} activeClassName={s.activeLink +' ' + s.link}>Profile</IndexLink></li>
-          <li className={s.item}><Link to='dashboard' className={s.link} activeClassName={s.activeLink +' ' + s.link}>Dashboard</Link></li>
-        </ul>
+      <nav>
+        <MyIcon icon='user' size='s' text='My Profile' />
+        <MyIcon icon='bug' size='s' text='Reported bugs' />
+        <MyIcon icon='assignment' size='s' text='Assignments' />
+        <MyIcon icon='cog' size='s' text='Settings' />
+        <MyIcon icon='help' size='s' text='Help' />
+        <MyIcon icon='mail' size='s' text='Messages' />
       </nav>
     );
   }

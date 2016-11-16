@@ -27,6 +27,10 @@ export default class MyUser extends React.Component {
         </div>
         <div className={s.section}>
           <span class='icon icon-s description'></span>
+          <p>{ user.displayName }</p>
+        </div>
+        <div className={s.section}>
+          <span class='icon icon-s description'></span>
           <p>{ user.username }</p>
         </div>
         <div className={s.section}>

@@ -41,6 +41,8 @@ router.post('/create', (req, res) => {
           password: hash,
           displayName: req.body.displayName,
           email: req.body.email,
+          conversations: [],
+          notifications: [],
           memberOf: [],
           pendingInvites: []
         }, (err) => {
@@ -87,7 +89,21 @@ router.get('/me', (req, res) => {
   res.json({
     token: req.user.token,
     username: req.user.username,
+    displayName: req.user.displayName,
+    conversations: req.user.conversations,
+    notifications: req.user.notifications,
     pendingInvites: req.user.pendingInvites,
     memberOf: req.user.memberOf
   });
+});
+
+/*
+* Search for User
+* @type: GET
+* @desc:
+*
+*/
+router.get('/search/:query', (req, res) => {
+  if (!req.user) return res.redirect('/');
+
 });

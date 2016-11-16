@@ -208,6 +208,14 @@ body {
     background-image: url(./icons/assignment-late.svg); }
   .icon.pencil {
     background-image: url(./icons/pencil.svg); }
+  .icon.mail {
+    background-image: url(./icons/mail.svg); }
+  .icon.notification {
+    background-image: url(./icons/notification.svg); }
+  .icon.notification-none {
+    background-image: url(./icons/notification-none.svg); }
+  .icon.send {
+    background-image: url(./icons/send.svg); }
 
 .col {
   display: block;

@@ -4,9 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Navbar from './components/navbar';
-
-import io from 'socket.io-client'; 
+import io from 'socket.io-client';
 
 class Layout extends React.Component {
   constructor() {
@@ -17,7 +15,6 @@ class Layout extends React.Component {
   render() {
     return (
       <main>
-        <Navbar />
         { this.props.children }
       </main>
     );

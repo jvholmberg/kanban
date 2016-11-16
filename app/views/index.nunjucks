@@ -22,15 +22,19 @@
       <label>
         Username
         <input type='text' name='username' />
-      </label>
+      </label><br/>
+      <label>
+        Display Name
+        <input type='text' name='displayName' />
+      </label><br/>
       <label>
         Password
         <input type='password' name='password' />
-      </label>
+      </label><br/>
       <label className={s.label}>
         Confirm Password
         <input type='password' name='password2' />
-      </label>
+      </label><br/>
       <button class='btn success' type='submit'>Register</button>
     </form>
   </div>
