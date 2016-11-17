@@ -38706,9 +38706,9 @@
 
 	var _reactRouter = __webpack_require__(172);
 
-	var _myIcon = __webpack_require__(349);
+	var _MyIcon = __webpack_require__(353);
 
-	var _myIcon2 = _interopRequireDefault(_myIcon);
+	var _MyIcon2 = _interopRequireDefault(_MyIcon);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38736,12 +38736,12 @@
 	      return _react2.default.createElement(
 	        'nav',
 	        null,
-	        _react2.default.createElement(_myIcon2.default, { icon: 'user', size: 's', text: 'My Profile' }),
-	        _react2.default.createElement(_myIcon2.default, { icon: 'bug', size: 's', text: 'Reported bugs' }),
-	        _react2.default.createElement(_myIcon2.default, { icon: 'assignment', size: 's', text: 'Assignments' }),
-	        _react2.default.createElement(_myIcon2.default, { icon: 'cog', size: 's', text: 'Settings' }),
-	        _react2.default.createElement(_myIcon2.default, { icon: 'help', size: 's', text: 'Help' }),
-	        _react2.default.createElement(_myIcon2.default, { icon: 'mail', size: 's', text: 'Messages' })
+	        _react2.default.createElement(_MyIcon2.default, { icon: 'user', size: 's', text: 'My Profile', pos: 'right' }),
+	        _react2.default.createElement(_MyIcon2.default, { icon: 'bug', size: 's', text: 'Reported bugs', pos: 'right' }),
+	        _react2.default.createElement(_MyIcon2.default, { icon: 'assignment', size: 's', text: 'Assignments', pos: 'bottom' }),
+	        _react2.default.createElement(_MyIcon2.default, { icon: 'cog', size: 's', text: 'Settings', pos: 'bottom' }),
+	        _react2.default.createElement(_MyIcon2.default, { icon: 'help', size: 's', text: 'Help', pos: 'bottom' }),
+	        _react2.default.createElement(_MyIcon2.default, { icon: 'mail', size: 's', text: 'Messages', pos: 'bottom' })
 	      );
 	    }
 	  }]);
@@ -38752,62 +38752,7 @@
 	exports.default = Navbar;
 
 /***/ },
-/* 349 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = undefined;
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MyIcon = function (_React$Component) {
-	  _inherits(MyIcon, _React$Component);
-
-	  function MyIcon() {
-	    _classCallCheck(this, MyIcon);
-
-	    return _possibleConstructorReturn(this, (MyIcon.__proto__ || Object.getPrototypeOf(MyIcon)).call(this));
-	  }
-
-	  _createClass(MyIcon, [{
-	    key: 'render',
-	    value: function render() {
-
-	      return _react2.default.createElement(
-	        'span',
-	        null,
-	        _react2.default.createElement('span', { className: this.props.icon + ' icon icon-' + this.props.size }),
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'icon-tooltip' },
-	          this.props.text
-	        )
-	      );
-	    }
-	  }]);
-
-	  return MyIcon;
-	}(_react2.default.Component);
-
-	exports.default = MyIcon;
-
-/***/ },
+/* 349 */,
 /* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -39027,6 +38972,65 @@
 	    _axios2.default.delete('/story/' + id).then(function (res) {}).catch(function (err) {});
 	  };
 	}
+
+/***/ },
+/* 353 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MyIcon = function (_React$Component) {
+	  _inherits(MyIcon, _React$Component);
+
+	  function MyIcon() {
+	    _classCallCheck(this, MyIcon);
+
+	    return _possibleConstructorReturn(this, (MyIcon.__proto__ || Object.getPrototypeOf(MyIcon)).call(this));
+	  }
+
+	  _createClass(MyIcon, [{
+	    key: 'render',
+	    value: function render() {
+	      var s = {
+	        root: 'my_icon_root',
+	        tooltip: 'my_icon_tooltip'
+	      };
+
+	      return _react2.default.createElement(
+	        'span',
+	        { className: s.root + ' icon ' + this.props.icon + ' icon-' + this.props.size },
+	        _react2.default.createElement(
+	          'span',
+	          { className: s.tooltip + ' tooltip-' + this.props.pos },
+	          this.props.text
+	        )
+	      );
+	    }
+	  }]);
+
+	  return MyIcon;
+	}(_react2.default.Component);
+
+	exports.default = MyIcon;
 
 /***/ }
 /******/ ]);
