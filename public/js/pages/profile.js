@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as user from '../actions/user';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar/';
 
 @connect((store) => {
   return {

@@ -29,10 +29,6 @@ table {
 html {
   font-family: 'Roboto', sans-serif; }
 
-main {
-  margin-top: 5rem;
-  padding-left: 5rem; }
-
 html {
   font-size: 10px; }
 
@@ -254,10 +250,10 @@ body {
 .col12 {
   width: 100%; }
 
-.my_icon_root {
+3.my_icon_root {
   position: relative;
   display: inline-block; }
-  .my_icon_root .my_icon_tooltip {
+  3.my_icon_root .my_icon_tooltip {
     visibility: hidden;
     width: 120px;
     background-color: #555;

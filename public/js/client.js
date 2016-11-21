@@ -9,7 +9,8 @@ import store from './store';
 
 import Layout from './layout';
 import Profile from './pages/profile';
-import Dashboard from './pages/dashboard';
+import Assignments from './pages/assignments';
+import Messages from './pages/messages';
 
 const app = document.getElementById('app');
 
@@ -19,7 +20,8 @@ ReactDOM.render(
       <Route path='/' component={Layout}>
         <IndexRoute component={Profile}></IndexRoute>
         <Route path="profile" component={Profile}></Route>
-        <Route path="dashboard" component={Dashboard}></Route>
+        <Route path="assignments" component={Assignments}></Route>
+        <Route path="messages" component={Messages}></Route>
       </Route>
     </Router>
   </Provider>

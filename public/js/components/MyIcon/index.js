@@ -1,8 +1,27 @@
 'use strict';
 
 import React from 'react';
+import { Link } from 'react-router'
 
-export default class MyIcon extends React.Component {
+export class IconLink extends React.Component {
+  constructor() {
+    super();
+  }
+  render() {
+    var s = {
+      root: 'my_icon_root',
+      tooltip: 'my_icon_tooltip'
+    };
+
+    return (
+      <Link to={ this.props.href }>
+        <span className={ s.root + ' icon ' + this.props.icon + ' icon-' + this.props.size } alt={ this.props.alt }></span>
+      </Link>
+    );
+  }
+}
+
+export class IconTooltip extends React.Component {
   constructor() {
     super();
   }
@@ -14,7 +33,7 @@ export default class MyIcon extends React.Component {
 
     return (
       <span className={ s.root + ' icon ' + this.props.icon + ' icon-' + this.props.size }>
-        <span className={ s.tooltip + ' tooltip-' + this.props.pos }>{this.props.text}</span>
+        <i className={ s.tooltip + ' tooltip-' + this.props.pos }>{this.props.text}</i>
       </span>
     );
   }

@@ -8,16 +8,15 @@ module.exports = function(app) {
   app.use('/', router);
 };
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   res.render('index');
 });
 
-router.get('/profile', (req, res, next) => {
+router.get('/profile', fn);
+router.get('/assignments', fn);
+router.get('/messages', fn);
+
+function fn(req, res) {
   if (!req.user) return res.redirect('/');
   res.render('application');
-});
-
-router.get('/dashboard', (req, res, next) => {
-  //if (!req.user) return res.redirect('/');
-  res.render('application');
-});
+}
