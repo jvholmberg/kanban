@@ -11,6 +11,7 @@ import Layout from './layout';
 import Profile from './pages/profile';
 import Assignments from './pages/assignments';
 import Messages from './pages/messages';
+import Logout from './pages/logout';
 
 const app = document.getElementById('app');
 
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Route path="profile" component={Profile}></Route>
         <Route path="assignments" component={Assignments}></Route>
         <Route path="messages" component={Messages}></Route>
+        <Route path="logout" component={Logout}></Route>
       </Route>
     </Router>
   </Provider>

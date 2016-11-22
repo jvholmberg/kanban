@@ -3,30 +3,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as user from '../actions/user';
-import Navbar from '../components/Navbar/';
+import { logout } from '../actions/user';
 
 @connect((store) => {
   return {
     user: store.user
   };
 })
-export default class Profile extends React.Component {
+export default class Logout extends React.Component {
 
   constructor() {
     super();
-
-
   }
   componentWillMount() {
-    this.props.dispatch(user.me());
-
+    this.props.dispatch(logout());
   }
 
   render() {
     return (
       <div>
-        <Navbar user={this.props.user.user} />
+        Logout
       </div>
     );
   }

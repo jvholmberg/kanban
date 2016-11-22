@@ -70,12 +70,11 @@ router.post('/login',
 /*
 * Logout User
 * @type: POST
-* @desc: Logout user and redirect to index-page
+* @desc: Logout user
 *
 */
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
 });
 
 /*
