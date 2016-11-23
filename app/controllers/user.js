@@ -73,8 +73,9 @@ router.post('/login',
 * @desc: Logout user
 *
 */
-router.get('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
   req.logout();
+  res.json(null);
 });
 
 /*

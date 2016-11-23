@@ -37215,7 +37215,7 @@
 
 	function logout() {
 	  return function (dispatch) {
-	    _axios2.default.get('/user/logout').then(function (res) {
+	    _axios2.default.post('/user/logout').then(function (res) {
 	      dispatch({
 	        type: 'LOGOUT_USER_FULFILLED',
 	        payload: res.data
@@ -38840,7 +38840,7 @@
 	  _createClass(Assignments, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.props.dispatch(user.fetch());
+	      this.props.dispatch(user.me());
 	    }
 	  }, {
 	    key: 'render',
@@ -38912,7 +38912,7 @@
 	  _createClass(Messages, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.props.dispatch(user.fetch());
+	      this.props.dispatch(user.me());
 	    }
 	  }, {
 	    key: 'render',

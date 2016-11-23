@@ -21,18 +21,18 @@ export function me() {
 
 export function logout() {
   return (dispatch) => {
-    axios.get('/user/logout').then((res) => {
-        dispatch({
-          type: 'LOGOUT_USER_FULFILLED',
-          payload: res.data
-        });
-      })
-      .catch((err) => {
-        dispatch({
-          type: 'LOGOUT_USER_REJECTED',
-          payload: res.data
-        });
+    axios.post('/user/logout').then((res) => {
+      dispatch({
+        type: 'LOGOUT_USER_FULFILLED',
+        payload: res.data
       });
+    })
+    .catch((err) => {
+      dispatch({
+        type: 'LOGOUT_USER_REJECTED',
+        payload: res.data
+      });
+    });
   };
 }
 

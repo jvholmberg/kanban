@@ -19,7 +19,7 @@ export default class Messages extends React.Component {
 
   }
   componentWillMount() {
-    this.props.dispatch(user.fetch());
+    this.props.dispatch(user.me());
 
   }
 

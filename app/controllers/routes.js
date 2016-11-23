@@ -15,11 +15,7 @@ router.get('/', (req, res) => {
 router.get('/profile', fn);
 router.get('/assignments', fn);
 router.get('/messages', fn);
-
-router.get('/logout', (req, res) => {
-  if (!req.user) return res.redirect('/');
-  res.redirect('/profile');
-});
+router.get('/logout', fn);
 
 function fn(req, res) {
   if (!req.user) return res.redirect('/');
