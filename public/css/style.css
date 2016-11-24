@@ -250,6 +250,21 @@ body {
 .col12 {
   width: 100%; }
 
+nav {
+  display: block;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-bottom: 0.1rem solid #333333; }
+  nav ul {
+    overflow: hidden; }
+    nav ul li {
+      display: block;
+      float: left; }
+      nav ul li a {
+        display: block;
+        padding: 1rem 3rem;
+        color: #333333; }
+
 3.my_icon_root {
   position: relative;
   display: inline-block; }

@@ -22,17 +22,17 @@ export function me() {
 export function logout() {
   return (dispatch) => {
     axios.post('/user/logout').then((res) => {
-      dispatch({
-        type: 'LOGOUT_USER_FULFILLED',
-        payload: res.data
+        dispatch({
+          type: 'LOGOUT_USER_FULFILLED',
+          payload: res.data
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: 'LOGOUT_USER_REJECTED',
+          payload: res.data
+        });
       });
-    })
-    .catch((err) => {
-      dispatch({
-        type: 'LOGOUT_USER_REJECTED',
-        payload: res.data
-      });
-    });
   };
 }
 
