@@ -22,6 +22,8 @@ export default class Navbar extends React.Component {
       <nav>
         <ul>
           { links.map((obj, index) => {
+            if (obj.to === '/logout')
+              return <li key={ index }><a href={ obj.to }>{ obj.text }</a></li>;
             return <li key={ index }><Link to={ obj.to }>{ obj.text }</Link></li>;
           }) }
         </ul>

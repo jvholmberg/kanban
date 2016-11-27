@@ -38765,6 +38765,15 @@
 	          'ul',
 	          null,
 	          links.map(function (obj, index) {
+	            if (obj.to === '/logout') return _react2.default.createElement(
+	              'li',
+	              { key: index },
+	              _react2.default.createElement(
+	                'a',
+	                { href: obj.to },
+	                obj.text
+	              )
+	            );
 	            return _react2.default.createElement(
 	              'li',
 	              { key: index },
