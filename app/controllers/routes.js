@@ -8,16 +8,22 @@ module.exports = function(app) {
   app.use('/', router);
 };
 
-router.get('/', (req, res) => {
-  res.render('index');
-});
+// Available routes for nonauthorized users
+router.get('/', nonauthorizedFn);
+router.get('/register', nonauthorizedFn);
+router.get('/login', nonauthorizedFn);
 
-router.get('/profile', fn);
-router.get('/assignments', fn);
-router.get('/messages', fn);
-router.get('/logout', fn);
+// Available routes for authorized users
+router.get('/profile', authorizedFn);
+router.get('/assignments', authorizedFn);
+router.get('/messages', authorizedFn);
+router.get('/logout', authorizedFn);
 
-function fn(req, res) {
+function authorizedFn(req, res) {
   if (!req.user) return res.redirect('/');
-  res.render('application');
+  res.render('index');
+}
+function nonauthorizedFn(req, res) {
+  if (req.user) return res.redirect('/profile');
+  res.render('index');
 }

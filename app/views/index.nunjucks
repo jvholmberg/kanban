@@ -1,42 +1,6 @@
 {% extends 'layout.nunjucks' %}
 
 {% block content %}
-  <div>
-    <h1>Login</h1>
-    <form action='/user/login' method='post'>
-      <label>
-        Username
-        <input type='text' name='username' />
-      </label>
-      <label>
-        Password
-        <input type='password' name='password' />
-      </label>
-      <button class='btn success' type='submit'>Login</button>
-    </form>
-  </div>
-
-  <div>
-    <h1>Register</h1>
-    <form action='/user/create' method='post'>
-      <label>
-        Username
-        <input type='text' name='username' />
-      </label><br/>
-      <label>
-        Display Name
-        <input type='text' name='displayName' />
-      </label><br/>
-      <label>
-        Password
-        <input type='password' name='password' />
-      </label><br/>
-      <label className={s.label}>
-        Confirm Password
-        <input type='password' name='password2' />
-      </label><br/>
-      <button class='btn success' type='submit'>Register</button>
-    </form>
-  </div>
-
+  <div id="app"></div>
+  <script src="/js/client.bundle.js" charset="utf-8"></script>
 {% endblock %}

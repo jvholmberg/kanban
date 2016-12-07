@@ -11,6 +11,10 @@ import Layout from './layout';
 import Profile from './pages/profile';
 import Assignments from './pages/assignments';
 import Messages from './pages/messages';
+
+import Landing from './pages/landing';
+import Register from './pages/register';
+import Login from './pages/login';
 import Logout from './pages/logout';
 
 const app = document.getElementById('app');
@@ -19,11 +23,18 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path='/' component={Layout}>
-        <IndexRoute component={Profile}></IndexRoute>
+
+        // Nonrestricted routes
+        <IndexRoute component={Landing}></IndexRoute>
+        <Route path="register" component={Register}></Route>
+        <Route path="login" component={Login}></Route>
+        <Route path="logout" component={Logout}></Route>
+
+        // Restricted routes
         <Route path="profile" component={Profile}></Route>
         <Route path="assignments" component={Assignments}></Route>
         <Route path="messages" component={Messages}></Route>
-        <Route path="logout" component={Logout}></Route>
+
       </Route>
     </Router>
   </Provider>

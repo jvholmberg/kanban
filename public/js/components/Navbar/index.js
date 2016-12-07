@@ -16,7 +16,11 @@ export default class Navbar extends React.Component {
       { to: '/assignments', text: 'Assignments' },
       { to: '/messages', text: 'Messages' },
       { to: '/logout', text: 'Logout' }
-    ] : [];
+    ] : [
+      { to: '/', text: 'Landing Page' },
+      { to: '/register', text: 'Register' },
+      { to: '/login', text: 'Login' }
+    ];
 
     return (
       <nav>
