@@ -59,9 +59,9 @@ body {
 
 .btn {
   display: inline-block;
-  padding: 1rem 4rem;
+  padding: 1rem 2.5rem;
   margin: 0;
-  height: 3.4rem;
+  height: 4rem;
   font-size: 1.4rem;
   font-weight: 200;
   line-height: 1.4rem;
@@ -115,6 +115,10 @@ body {
     background: #FFFFFF; }
     .btn.default:hover {
       background-color: #CCD1D9; }
+  .btn.primary2 {
+    background: #2b9cf2; }
+    .btn.primary2:hover {
+      background-color: #0e83dc; }
 
 .alert {
   display: block;
@@ -253,8 +257,7 @@ body {
 nav {
   display: block;
   width: 100%;
-  background-color: #FFFFFF;
-  border-bottom: 0.1rem solid #333333; }
+  background-color: #333333; }
   nav ul {
     overflow: hidden; }
     nav ul li {
@@ -263,7 +266,9 @@ nav {
       nav ul li a {
         display: block;
         padding: 1rem 3rem;
-        color: #333333; }
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: 600; }
 
 3.my_icon_root {
   position: relative;

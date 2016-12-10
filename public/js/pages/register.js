@@ -20,21 +20,21 @@ export default class Register extends React.Component {
         <form action='/user/create' method='post'>
           <label>
             Username
-            <input type='text' name='username' />
+            <input className='form-control' type='text' name='username' />
           </label><br/>
           <label>
             Display Name
-            <input type='text' name='displayName' />
+            <input className='form-control' type='text' name='displayName' />
           </label><br/>
           <label>
             Password
-            <input type='password' name='password' />
+            <input className='form-control' type='password' name='password' />
           </label><br/>
           <label>
             Confirm Password
-            <input type='password' name='password2' />
+            <input className='form-control' type='password' name='password2' />
           </label><br/>
-          <button className='btn success' type='submit'>Register</button>
+          <button className='btn primary2' type='submit'>Register</button>
         </form>
       </div>
     );

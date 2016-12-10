@@ -15,8 +15,7 @@ router.get('/login', nonauthorizedFn);
 
 // Available routes for authorized users
 router.get('/profile', authorizedFn);
-router.get('/assignments', authorizedFn);
-router.get('/messages', authorizedFn);
+router.get('/diary', authorizedFn);
 router.get('/logout', authorizedFn);
 
 function authorizedFn(req, res) {

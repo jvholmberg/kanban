@@ -3,11 +3,9 @@
 import { combineReducers } from 'redux';
 
 import user from './user';
-import story from './story';
-import board from './board';
-import item from './item';
+import diary from './diary';
 
 export default combineReducers({
   user,
-  story
+  diary
 });

@@ -9,8 +9,7 @@ import store from './store';
 
 import Layout from './layout';
 import Profile from './pages/profile';
-import Assignments from './pages/assignments';
-import Messages from './pages/messages';
+import Diary from './pages/diary';
 
 import Landing from './pages/landing';
 import Register from './pages/register';
@@ -32,8 +31,7 @@ ReactDOM.render(
 
         // Restricted routes
         <Route path="profile" component={Profile}></Route>
-        <Route path="assignments" component={Assignments}></Route>
-        <Route path="messages" component={Messages}></Route>
+        <Route path="diary" component={Diary}></Route>
 
       </Route>
     </Router>

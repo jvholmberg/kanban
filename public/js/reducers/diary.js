@@ -4,31 +4,37 @@ export default function reducer(state = {
     fetching: false,
     fetched: false,
     error: null,
-    story: {
+    diary: {
       owner: null,
-      members: [],
-      title: null,
-      text: null,
-      boards: [],
-      history: []
+      activities: [{
+        title: null,
+        exercises: [{
+          title: null,
+          sets: [{
+            weight: 0,
+            reps: 0
+          }]
+        }],
+        timestamp: { type: Date, default: Date.now }
+      }]
     }
   }, action) {
 
   switch (action.type) {
-    case 'FETCH_STORY': {
+    case 'FETCH_DIARY': {
       return {
         ...state,
         fetching: true
       };
     }
-    case 'FETCH_STORY_REJECTED': {
+    case 'FETCH_DIARY_REJECTED': {
       return {
         ...state,
         fetching: false,
         error: action.payload
       };
     }
-    case 'FETCH_STORY_FULFILLED': {
+    case 'FETCH_DIARY_FULFILLED': {
       return {
         ...state,
         fetching: false,

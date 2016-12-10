@@ -3,15 +3,15 @@
 import axios from 'axios';
 
 /*
-* Create Story
+* Create Activity
 * @type: POST
 */
-export function createStory(owner, title, text) {
+export function createActivity(owner, title, activities) {
   return (dispatch) => {
-    axios.post('/story', {
+    axios.post('/diary', {
       owner: owner,
       title: title,
-      text: text
+      activities: activities
     }).then((res) => {
         console.log(res);
       })
@@ -22,12 +22,12 @@ export function createStory(owner, title, text) {
 }
 
 /*
-* Get a single story by its Id
+* Get a single diary by its Id
 * @type: GET
 */
-export function getStory(id) {
+export function getActivity(id) {
   return (dispatch) => {
-    axios.get('/story/' + id)
+    axios.get('/diary/' + id)
       .then((res) => {
 
       })
@@ -41,9 +41,9 @@ export function getStory(id) {
 * Get all Stories for user
 * @type: GET
 */
-export function getStories() {
+export function getActivities() {
   return (dispatch) => {
-    axios.get('/story')
+    axios.get('/diary')
       .then((res) => {
 
       })
@@ -54,12 +54,12 @@ export function getStories() {
 }
 
 /*
-* Update Story
+* Update Activity
 * @type: PUT
 */
-export function updateStory(owner, title, text) {
+export function updateActivity(owner, title, text) {
   return (dispatch) => {
-    axios.put('/story', {
+    axios.put('/diary', {
       owner: owner,
       title: title,
       text: text
@@ -73,12 +73,12 @@ export function updateStory(owner, title, text) {
 }
 
 /*
-* Delete Story
+* Delete Activity
 * @type: DELETE
 */
-export function deleteStory(id) {
+export function deleteActivity(id) {
   return (dispatch) => {
-    axios.delete('/story/' + id)
+    axios.delete('/diary/' + id)
       .then((res) => {
 
       })

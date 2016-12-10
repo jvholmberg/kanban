@@ -19,13 +19,13 @@ export default class Login extends React.Component {
           <form action='/user/login' method='post'>
             <label>
               Username
-              <input type='text' name='username' />
+              <input className='form-control' type='text' name='username' />
             </label>
             <label>
               Password
-              <input type='password' name='password' />
+              <input className='form-control' type='password' name='password' />
             </label>
-            <button class='btn success' type='submit'>Login</button>
+            <button className='btn primary2' type='submit'>Login</button>
           </form>
         </div>
       </div>
