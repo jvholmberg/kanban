@@ -15,7 +15,7 @@ router.get('/login', nonauthorizedFn);
 
 // Available routes for authorized users
 router.get('/profile', authorizedFn);
-router.get('/diary', authorizedFn);
+router.get('/dashboard', authorizedFn);
 router.get('/logout', authorizedFn);
 
 function authorizedFn(req, res) {
@@ -23,6 +23,6 @@ function authorizedFn(req, res) {
   res.render('index');
 }
 function nonauthorizedFn(req, res) {
-  if (req.user) return res.redirect('/profile');
+  if (req.user) return res.redirect('/dashboard');
   res.render('index');
 }

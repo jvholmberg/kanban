@@ -70,23 +70,23 @@
 
 	var _profile2 = _interopRequireDefault(_profile);
 
-	var _diary = __webpack_require__(347);
+	var _dashboard = __webpack_require__(347);
 
-	var _diary2 = _interopRequireDefault(_diary);
+	var _dashboard2 = _interopRequireDefault(_dashboard);
 
-	var _landing = __webpack_require__(350);
+	var _landing = __webpack_require__(354);
 
 	var _landing2 = _interopRequireDefault(_landing);
 
-	var _register = __webpack_require__(351);
+	var _register = __webpack_require__(355);
 
 	var _register2 = _interopRequireDefault(_register);
 
-	var _login = __webpack_require__(352);
+	var _login = __webpack_require__(356);
 
 	var _login2 = _interopRequireDefault(_login);
 
-	var _logout = __webpack_require__(353);
+	var _logout = __webpack_require__(357);
 
 	var _logout2 = _interopRequireDefault(_logout);
 
@@ -110,7 +110,7 @@
 	      _react2.default.createElement(_reactRouter.Route, { path: 'logout', component: _logout2.default }),
 	      '// Restricted routes',
 	      _react2.default.createElement(_reactRouter.Route, { path: 'profile', component: _profile2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'diary', component: _diary2.default })
+	      _react2.default.createElement(_reactRouter.Route, { path: 'dashboard', component: _dashboard2.default })
 	    )
 	  )
 	), app);
@@ -29323,7 +29323,7 @@
 	    error: null,
 	    diary: {
 	      owner: null,
-	      activities: [{
+	      workouts: [{
 	        title: null,
 	        exercises: [{
 	          title: null,
@@ -29332,7 +29332,7 @@
 	            reps: 0
 	          }]
 	        }],
-	        timestamp: { type: Date, default: Date.now }
+	        timestamp: null
 	      }]
 	    }
 	  };
@@ -29357,7 +29357,7 @@
 	      {
 	        return _extends({}, state, {
 	          fetching: false,
-	          story: action.payload
+	          diary: action.payload
 	        });
 	      }
 	  }
@@ -37095,7 +37095,7 @@
 	  function Profile() {
 	    _classCallCheck(this, Profile);
 
-	    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this));
+	    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
 	  }
 
 	  _createClass(Profile, [{
@@ -38696,7 +38696,7 @@
 	      var user = this.props.user;
 
 
-	      var links = user ? [{ to: '/profile', text: 'Profile' }, { to: '/diary', text: 'Diary' }, { to: '/logout', text: 'Logout' }] : [{ to: '/', text: 'Landing Page' }, { to: '/register', text: 'Register' }, { to: '/login', text: 'Login' }];
+	      var links = user ? [{ to: '/profile', text: 'Profile' }, { to: '/dashboard', text: 'Dashboard' }, { to: '/logout', text: 'Logout' }] : [{ to: '/', text: 'Landing Page' }, { to: '/register', text: 'Register' }, { to: '/login', text: 'Login' }];
 
 	      return _react2.default.createElement(
 	        'nav',
@@ -38759,7 +38759,7 @@
 
 	var user = _interopRequireWildcard(_user);
 
-	var _diary = __webpack_require__(354);
+	var _diary = __webpack_require__(348);
 
 	var diary = _interopRequireWildcard(_diary);
 
@@ -38767,9 +38767,13 @@
 
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 
-	var _HistoryBar = __webpack_require__(348);
+	var _Diary = __webpack_require__(349);
 
-	var _HistoryBar2 = _interopRequireDefault(_HistoryBar);
+	var _Diary2 = _interopRequireDefault(_Diary);
+
+	var _Workout = __webpack_require__(352);
+
+	var _Workout2 = _interopRequireDefault(_Workout);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -38781,41 +38785,45 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Diary = (_dec = (0, _reactRedux.connect)(function (store) {
+	var Dashboard = (_dec = (0, _reactRedux.connect)(function (store) {
 	  return {
 	    user: store.user,
 	    diary: store.diary
 	  };
 	}), _dec(_class = function (_React$Component) {
-	  _inherits(Diary, _React$Component);
+	  _inherits(Dashboard, _React$Component);
 
-	  function Diary() {
-	    _classCallCheck(this, Diary);
+	  function Dashboard() {
+	    _classCallCheck(this, Dashboard);
 
-	    return _possibleConstructorReturn(this, (Diary.__proto__ || Object.getPrototypeOf(Diary)).call(this));
+	    return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
 	  }
 
-	  _createClass(Diary, [{
+	  _createClass(Dashboard, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
 	      this.props.dispatch(user.me());
-	      this.props.dispatch(diary.getActivities());
+	      this.props.dispatch(diary.get());
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+
+	      var mappedWorkouts = this.props.diary.diary.workouts.map(function (workout, index) {
+	        return _react2.default.createElement(_Workout2.default, { key: index, data: workout });
+	      });
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(_Navbar2.default, { user: this.props.user.user }),
-	        _react2.default.createElement(_HistoryBar2.default, { activities: this.props.diary.diary })
+	        mappedWorkouts
 	      );
 	    }
 	  }]);
 
-	  return Diary;
+	  return Dashboard;
 	}(_react2.default.Component)) || _class);
-	exports.default = Diary;
+	exports.default = Dashboard;
 
 /***/ },
 /* 348 */
@@ -38826,61 +38834,89 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = undefined;
+	exports.createActivity = createActivity;
+	exports.getActivity = getActivity;
+	exports.get = get;
+	exports.updateActivity = updateActivity;
+	exports.deleteActivity = deleteActivity;
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _axios = __webpack_require__(321);
 
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _HistoryItem = __webpack_require__(349);
-
-	var _HistoryItem2 = _interopRequireDefault(_HistoryItem);
+	var _axios2 = _interopRequireDefault(_axios);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	/*
+	* Create Activity
+	* @type: POST
+	*/
+	function createActivity(owner, title, activities) {
+	  return function (dispatch) {
+	    _axios2.default.post('/diary', {
+	      owner: owner,
+	      title: title,
+	      activities: activities
+	    }).then(function (res) {
+	      console.log(res);
+	    }).catch(function (err) {
+	      console.log(err);
+	    });
+	  };
+	}
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	/*
+	* Get a single diary by its Id
+	* @type: GET
+	*/
+	function getActivity(id) {
+	  return function (dispatch) {
+	    _axios2.default.get('/diary/' + id).then(function (res) {}).catch(function (err) {});
+	  };
+	}
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	/*
+	* Get all Stories for user
+	* @type: GET
+	*/
+	function get() {
+	  return function (dispatch) {
+	    _axios2.default.get('/diary').then(function (res) {
+	      dispatch({
+	        type: 'FETCH_DIARY_FULFILLED',
+	        payload: res.data
+	      });
+	    }).catch(function (err) {
+	      dispatch({
+	        type: 'FETCH_DIARY_REJECTED',
+	        payload: res.data
+	      });
+	    });
+	  };
+	}
 
-	var HistoryBar = function (_React$Component) {
-	  _inherits(HistoryBar, _React$Component);
+	/*
+	* Update Activity
+	* @type: PUT
+	*/
+	function updateActivity(owner, title, text) {
+	  return function (dispatch) {
+	    _axios2.default.put('/diary', {
+	      owner: owner,
+	      title: title,
+	      text: text
+	    }).then(function (res) {}).catch(function (err) {});
+	  };
+	}
 
-	  function HistoryBar() {
-	    _classCallCheck(this, HistoryBar);
-
-	    return _possibleConstructorReturn(this, (HistoryBar.__proto__ || Object.getPrototypeOf(HistoryBar)).call(this));
-	  }
-
-	  _createClass(HistoryBar, [{
-	    key: 'render',
-	    value: function render() {
-	      var activities = this.props.activities.activities;
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'ul',
-	          null,
-	          activities.map(function (obj, index) {
-	            return _react2.default.createElement(
-	              'li',
-	              { key: index },
-	              _react2.default.createElement(_HistoryItem2.default, { activity: obj })
-	            );
-	          })
-	        )
-	      );
-	    }
-	  }]);
-
-	  return HistoryBar;
-	}(_react2.default.Component);
-
-	exports.default = HistoryBar;
+	/*
+	* Delete Activity
+	* @type: DELETE
+	*/
+	function deleteActivity(id) {
+	  return function (dispatch) {
+	    _axios2.default.delete('/diary/' + id).then(function (res) {}).catch(function (err) {});
+	  };
+	}
 
 /***/ },
 /* 349 */
@@ -38899,6 +38935,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _List = __webpack_require__(350);
+
+	var _List2 = _interopRequireDefault(_List);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38907,16 +38947,148 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var HistoryItem = function (_React$Component) {
-	  _inherits(HistoryItem, _React$Component);
+	var Diary = function (_React$Component) {
+	  _inherits(Diary, _React$Component);
 
-	  function HistoryItem() {
-	    _classCallCheck(this, HistoryItem);
+	  function Diary() {
+	    _classCallCheck(this, Diary);
 
-	    return _possibleConstructorReturn(this, (HistoryItem.__proto__ || Object.getPrototypeOf(HistoryItem)).call(this));
+	    return _possibleConstructorReturn(this, (Diary.__proto__ || Object.getPrototypeOf(Diary)).call(this));
 	  }
 
-	  _createClass(HistoryItem, [{
+	  _createClass(Diary, [{
+	    key: 'addActivity',
+	    value: function addActivity() {
+	      console.log('lol');
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var activities = this.props.activities.activities;
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_List2.default, { activities: this.props.activities, addActivity: this.addActivity }),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'something here'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Diary;
+	}(_react2.default.Component);
+
+	exports.default = Diary;
+
+/***/ },
+/* 350 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Item = __webpack_require__(351);
+
+	var _Item2 = _interopRequireDefault(_Item);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var DiaryList = function (_React$Component) {
+	  _inherits(DiaryList, _React$Component);
+
+	  function DiaryList() {
+	    _classCallCheck(this, DiaryList);
+
+	    return _possibleConstructorReturn(this, (DiaryList.__proto__ || Object.getPrototypeOf(DiaryList)).call(this));
+	  }
+
+	  _createClass(DiaryList, [{
+	    key: 'render',
+	    value: function render() {
+	      var activities = this.props.activities.activities;
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement('input', { type: 'text', name: 'title' }),
+	            _react2.default.createElement('input', { type: 'button', value: 'Add', onClick: this.props.addActivity })
+	          ),
+	          activities.map(function (obj, index) {
+	            return _react2.default.createElement(
+	              'li',
+	              { key: index },
+	              _react2.default.createElement(_Item2.default, { activity: obj })
+	            );
+	          })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return DiaryList;
+	}(_react2.default.Component);
+
+	exports.default = DiaryList;
+
+/***/ },
+/* 351 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var DiaryListItem = function (_React$Component) {
+	  _inherits(DiaryListItem, _React$Component);
+
+	  function DiaryListItem() {
+	    _classCallCheck(this, DiaryListItem);
+
+	    return _possibleConstructorReturn(this, (DiaryListItem.__proto__ || Object.getPrototypeOf(DiaryListItem)).call(this));
+	  }
+
+	  _createClass(DiaryListItem, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -38931,13 +39103,180 @@
 	    }
 	  }]);
 
-	  return HistoryItem;
+	  return DiaryListItem;
 	}(_react2.default.Component);
 
-	exports.default = HistoryItem;
+	exports.default = DiaryListItem;
 
 /***/ },
-/* 350 */
+/* 352 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Exercise = __webpack_require__(353);
+
+	var _Exercise2 = _interopRequireDefault(_Exercise);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Workout = function (_React$Component) {
+	  _inherits(Workout, _React$Component);
+
+	  function Workout() {
+	    _classCallCheck(this, Workout);
+
+	    return _possibleConstructorReturn(this, (Workout.__proto__ || Object.getPrototypeOf(Workout)).apply(this, arguments));
+	  }
+
+	  _createClass(Workout, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {}
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var mappedExercises = this.props.data.exercises.map(function (exercise, index) {
+	        return _react2.default.createElement(_Exercise2.default, { key: index, data: exercise });
+	      });
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col col8' },
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              'Title',
+	              _react2.default.createElement('input', { className: 'form-control', type: 'text', name: 'title' })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col col4' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'btn primary2' },
+	              'Add'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          this.props.data.title
+	        ),
+	        mappedExercises
+	      );
+	    }
+	  }]);
+
+	  return Workout;
+	}(_react2.default.Component);
+
+	exports.default = Workout;
+
+/***/ },
+/* 353 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Exercise = function (_React$Component) {
+	  _inherits(Exercise, _React$Component);
+
+	  function Exercise() {
+	    _classCallCheck(this, Exercise);
+
+	    return _possibleConstructorReturn(this, (Exercise.__proto__ || Object.getPrototypeOf(Exercise)).apply(this, arguments));
+	  }
+
+	  _createClass(Exercise, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {}
+	  }, {
+	    key: 'render',
+	    value: function render() {
+
+	      var mappedSets = this.props.data.sets.map(function (set, index) {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            set.reps,
+	            'x'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            set.weight,
+	            'kg'
+	          )
+	        );
+	      });
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          this.props.data.title
+	        ),
+	        mappedSets
+	      );
+	    }
+	  }]);
+
+	  return Exercise;
+	}(_react2.default.Component);
+
+	exports.default = Exercise;
+
+/***/ },
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38992,7 +39331,7 @@
 	exports.default = Landing;
 
 /***/ },
-/* 351 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39047,15 +39386,8 @@
 	          _react2.default.createElement(
 	            'label',
 	            null,
-	            'Username',
+	            'Email',
 	            _react2.default.createElement('input', { className: 'form-control', type: 'text', name: 'username' })
-	          ),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            'label',
-	            null,
-	            'Display Name',
-	            _react2.default.createElement('input', { className: 'form-control', type: 'text', name: 'displayName' })
 	          ),
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
@@ -39088,7 +39420,7 @@
 	exports.default = Register;
 
 /***/ },
-/* 352 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39146,7 +39478,7 @@
 	            _react2.default.createElement(
 	              'label',
 	              null,
-	              'Username',
+	              'Email',
 	              _react2.default.createElement('input', { className: 'form-control', type: 'text', name: 'username' })
 	            ),
 	            _react2.default.createElement(
@@ -39172,7 +39504,7 @@
 	exports.default = Login;
 
 /***/ },
-/* 353 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39239,89 +39571,6 @@
 	  return Logout;
 	}(_react2.default.Component)) || _class);
 	exports.default = Logout;
-
-/***/ },
-/* 354 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.createActivity = createActivity;
-	exports.getActivity = getActivity;
-	exports.getActivities = getActivities;
-	exports.updateActivity = updateActivity;
-	exports.deleteActivity = deleteActivity;
-
-	var _axios = __webpack_require__(321);
-
-	var _axios2 = _interopRequireDefault(_axios);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/*
-	* Create Activity
-	* @type: POST
-	*/
-	function createActivity(owner, title, activities) {
-	  return function (dispatch) {
-	    _axios2.default.post('/diary', {
-	      owner: owner,
-	      title: title,
-	      activities: activities
-	    }).then(function (res) {
-	      console.log(res);
-	    }).catch(function (err) {
-	      console.log(err);
-	    });
-	  };
-	}
-
-	/*
-	* Get a single diary by its Id
-	* @type: GET
-	*/
-	function getActivity(id) {
-	  return function (dispatch) {
-	    _axios2.default.get('/diary/' + id).then(function (res) {}).catch(function (err) {});
-	  };
-	}
-
-	/*
-	* Get all Stories for user
-	* @type: GET
-	*/
-	function getActivities() {
-	  return function (dispatch) {
-	    _axios2.default.get('/diary').then(function (res) {}).catch(function (err) {});
-	  };
-	}
-
-	/*
-	* Update Activity
-	* @type: PUT
-	*/
-	function updateActivity(owner, title, text) {
-	  return function (dispatch) {
-	    _axios2.default.put('/diary', {
-	      owner: owner,
-	      title: title,
-	      text: text
-	    }).then(function (res) {}).catch(function (err) {});
-	  };
-	}
-
-	/*
-	* Delete Activity
-	* @type: DELETE
-	*/
-	function deleteActivity(id) {
-	  return function (dispatch) {
-	    _axios2.default.delete('/diary/' + id).then(function (res) {}).catch(function (err) {});
-	  };
-	}
 
 /***/ }
 /******/ ]);

@@ -6,7 +6,7 @@ export default function reducer(state = {
     error: null,
     diary: {
       owner: null,
-      activities: [{
+      workouts: [{
         title: null,
         exercises: [{
           title: null,
@@ -15,7 +15,7 @@ export default function reducer(state = {
             reps: 0
           }]
         }],
-        timestamp: { type: Date, default: Date.now }
+        timestamp: null
       }]
     }
   }, action) {
@@ -38,7 +38,7 @@ export default function reducer(state = {
       return {
         ...state,
         fetching: false,
-        story: action.payload
+        diary: action.payload
       };
     }
   }

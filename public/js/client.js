@@ -9,7 +9,7 @@ import store from './store';
 
 import Layout from './layout';
 import Profile from './pages/profile';
-import Diary from './pages/diary';
+import Dashboard from './pages/dashboard';
 
 import Landing from './pages/landing';
 import Register from './pages/register';
@@ -31,7 +31,7 @@ ReactDOM.render(
 
         // Restricted routes
         <Route path="profile" component={Profile}></Route>
-        <Route path="diary" component={Diary}></Route>
+        <Route path="dashboard" component={Dashboard}></Route>
 
       </Route>
     </Router>

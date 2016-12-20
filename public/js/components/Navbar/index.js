@@ -13,7 +13,7 @@ export default class Navbar extends React.Component {
 
     const links = user ? [
       { to: '/profile', text: 'Profile' },
-      { to: '/diary', text: 'Diary' },
+      { to: '/dashboard', text: 'Dashboard' },
       { to: '/logout', text: 'Logout' }
     ] : [
       { to: '/', text: 'Landing Page' },

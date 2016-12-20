@@ -12,7 +12,7 @@ passport.use(new LocalStrategy(
       console.log('LocalStrategy');
       if (err) return done(err);
       if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
+        return done(null, false, { message: 'User could not be found.' });
       }
       bcrypt.compare(password, user.password,
         (err, isMatch) => {

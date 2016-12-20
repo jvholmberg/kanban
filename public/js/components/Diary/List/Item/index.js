@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class HistoryItem extends React.Component {
+export default class DiaryListItem extends React.Component {
   constructor() {
     super();
   }

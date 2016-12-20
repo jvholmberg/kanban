@@ -18,7 +18,7 @@ export default class Login extends React.Component {
           <h1>Login</h1>
           <form action='/user/login' method='post'>
             <label>
-              Username
+              Email
               <input className='form-control' type='text' name='username' />
             </label>
             <label>

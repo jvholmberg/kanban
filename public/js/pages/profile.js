@@ -13,11 +13,6 @@ import Navbar from '../components/Navbar/';
 })
 export default class Profile extends React.Component {
 
-  constructor() {
-    super();
-
-
-  }
   componentWillMount() {
     this.props.dispatch(user.me());
 

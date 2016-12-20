@@ -2,6 +2,7 @@ var express = require('express')
   , router = express.Router()
   , mongoose = require('mongoose')
   , User = mongoose.model('User')
+  , Diary = mongoose.model('Diary')
   , passport = require('passport')
   , bcrypt = require('bcryptjs');
 
@@ -14,7 +15,7 @@ module.exports = function(app) {
 * @type: POST
 * @desc: Register user if following is valid...
 *   1. Passwords match
-*   2. Username is not already taken
+*   2. Email is not already taken
 *   ... If valid, encrypt password and add user to database
 *
 */
@@ -27,27 +28,47 @@ router.post('/create', (req, res) => {
 
   // Check if username is taken
   User.findOne({ username: req.body.username }, (err, user) => {
-    if (err) return done(err);
-    if (user) return done(err);
+    if (err) return console.log(err);
+    if (user) return console.log(user);
 
     // Encrypt password
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(req.body.password, salt, (err, hash) => {
 
-        // Create user
-        User.create({
-          token: req.body.username,
-          username: req.body.username,
-          password: hash,
-          displayName: req.body.displayName,
-          email: req.body.email,
-          conversations: [],
-          notifications: [],
-          memberOf: [],
-          pendingInvites: []
-        }, (err) => {
-          console.log(err);
-          res.redirect('/');
+        Diary.create({
+          title: 'Notebook',
+          workouts: [{
+            id: 0,
+            title: '#Armday',
+            exercises: [{
+              title: 'Bicep curl',
+              sets: [
+                { weight: 25, reps: 12 },
+                { weight: 25, reps: 10 },
+                { weight: 22, reps: 10 },
+              ]
+            }, {
+              title: 'Triceps',
+              sets: [
+                { weight: 40, reps: 12 },
+                { weight: 40, reps: 10 },
+                { weight: 40, reps: 8 },
+              ]
+            }]
+          }]
+        }, (err, diary) => {
+          if (err) return console.log(err);
+
+          // Create user
+          User.create({
+            username: req.body.username,
+            password: hash,
+            diaries: [diary._id]
+          }, (err, user) => {
+            if (err) return console.log(err);
+
+            res.redirect('/');
+          });
         });
       });
     });
@@ -62,7 +83,7 @@ router.post('/create', (req, res) => {
 */
 router.post('/login',
   passport.authenticate('local', {
-    successRedirect: '/profile',
+    successRedirect: '/dashboard',
     failureRedirect: '/'
   })
 );

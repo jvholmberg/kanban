@@ -19,12 +19,8 @@ export default class Register extends React.Component {
         <h1>Register</h1>
         <form action='/user/create' method='post'>
           <label>
-            Username
+            Email
             <input className='form-control' type='text' name='username' />
-          </label><br/>
-          <label>
-            Display Name
-            <input className='form-control' type='text' name='displayName' />
           </label><br/>
           <label>
             Password

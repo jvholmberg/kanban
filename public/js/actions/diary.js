@@ -41,14 +41,20 @@ export function getActivity(id) {
 * Get all Stories for user
 * @type: GET
 */
-export function getActivities() {
+export function get() {
   return (dispatch) => {
     axios.get('/diary')
       .then((res) => {
-
+        dispatch({
+          type: 'FETCH_DIARY_FULFILLED',
+          payload: res.data
+        });
       })
       .catch((err) => {
-
+        dispatch({
+          type: 'FETCH_DIARY_REJECTED',
+          payload: res.data
+        });
       });
   };
 }
